@@ -14,6 +14,12 @@ app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+app.listen(port);
+
+
+app.use('/api/data', function(req, res) {
+    res.json({ greeting: 'Hello World' });
+});
 
 app.use('/' , router);
 
