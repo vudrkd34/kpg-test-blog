@@ -80,12 +80,12 @@
     "workbox-webpack-plugin": "5.1.4"
   },
   "scripts": {
-    "start": "node scripts/start.js",
+    "start": "concurrently \"nodemon server/server.js\" \"node scripts/start.js\"",
     "build": "node scripts/build.js",
     "server": "nodemon server/server.js",
     "dev": "concurrently \"nodemon server/server.js\" \"node scripts/start.js\"",
-    "test": "node scripts/test.js",
-    "heroku-postbuild": "cd client && yarn install && yarn run build"
+    "test": "node scripts/test.js"
+    
   },
   "eslintConfig": {
     "extends": [
