@@ -21,7 +21,7 @@ sequelize.sync();
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-app.listen(PORT);
+//app.listen(PORT);
 
 
 
