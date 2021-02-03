@@ -4,7 +4,12 @@ const router = require('./route');
 
 const cors = require('cors');
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT;
+
+app.get('/', (req, res, next) => {
+    res.send('Hello, Heroku!');
+  });
+
 const sequelize = require('./models').sequelize;
 const bodyParser = require('body-parser');
 
