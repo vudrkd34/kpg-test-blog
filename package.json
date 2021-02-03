@@ -83,8 +83,8 @@
     "build": "node scripts/build.js",
     "server": "nodemon server/server.js",
     "dev": "concurrently \"nodemon server/server.js\" \"node scripts/start.js\"",
-    "test": "node scripts/test.js",
-    "heroku-postbuild": "cd client && yarn install && yarn build"
+    "test": "node scripts/test.js"
+    
     
   },
   "eslintConfig": {
