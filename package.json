@@ -41,6 +41,7 @@
     "file-loader": "6.1.1",
     "fs-extra": "^9.0.1",
     "html-webpack-plugin": "4.5.0",
+    "http-proxy-middelware": "^0.0.1-security",
     "identity-obj-proxy": "3.0.0",
     "jest": "26.6.0",
     "jest-circus": "26.6.0",
@@ -83,7 +84,8 @@
     "build": "node scripts/build.js",
     "server": "nodemon server/server.js",
     "dev": "concurrently \"nodemon server/server.js\" \"node scripts/start.js\"",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "heroku-postbuild": "cd client && yarn install && yarn run build"
   },
   "eslintConfig": {
     "extends": [
