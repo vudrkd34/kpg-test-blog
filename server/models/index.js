@@ -9,10 +9,17 @@ const config = require(path.join(__dirname,'..','config','db.json'))[
 ];
 const db = {};
 
+
 let sequelize = new Sequelize(
-  config.database,
-  config.username,
-  config.password,
+  'TEST',
+  'utsoft',
+  'utsoft!@#',
+  {
+    host:'175.201.10.158',
+    dialect : 'mysql',
+    port : '3306',
+
+  },
   config,
   {
     define: {
