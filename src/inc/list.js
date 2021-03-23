@@ -61,7 +61,7 @@ class List extends Component{
           })
     
           if(res.data) {
-            alert('데이터를 삭제했습니다..')
+            alert('데이터를 삭제했습니다....')
             return window.location.reload();
           }
         }
