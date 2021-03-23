@@ -50,7 +50,7 @@ class List extends Component{
       }
 
       _delete = async (el) => {
-        const remove = window.confirm(el.test_col + '을 삭제 합니까?');
+        const remove = window.confirm(el.test_col + '을 삭제 합니까??');
     
         if(remove){
           const body = { num : el.num }
