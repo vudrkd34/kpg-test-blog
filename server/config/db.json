@@ -2,7 +2,7 @@
     "development" : {
         "username": "utsoft",
         "password": "utsoft!@#",
-        "database": "TEST",
+        "database": "REACT_BOARD",
         "host": "175.201.10.158",
         "port": "3306",
         "dialect": "mysql"

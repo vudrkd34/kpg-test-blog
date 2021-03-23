@@ -1,34 +1,25 @@
 import React, {Component} from 'react';
 import './App.css';
+import {BrowserRouter, Route , Link, Switch} from 'react-router-dom';
 import axios from 'axios';
+
+import Home from './inc/home.js';
+import Test from './inc/test.js';
+import List from './inc/list.js';
+import Write from './inc/write.js';
+import Detail from './inc/detail.js';
+import Update from './inc/update.js';
 
 class App extends Component {
   constructor(props){
     super(props)
-    this.state = {
+    console.log('TEST 페이지다')
+    this.state = { 
       home : '',
-      list : [],
+      //list : [],
       update : false,
-    }
-  }
-
-  componentDidMount(){
-    this._getData();
-  }
-
-  _getData = async() => {
-    const res = await axios.get('/get/data');
-
-    if(res.data[0] === undefined){
-      let cover = [];
-      cover.push(res.data);
-
-      return this.setState({ list : cover})
-    }  
-
-    this.setState({list : res.data});
-  
-  }
+    } 
+  } 
 
   _addData = async(e) => {
     const {name} = this.state;
@@ -38,7 +29,9 @@ class App extends Component {
       method : 'POST',
       data : {'data' : name} ,
       headers: new Headers()
-    })
+    }) 
+    
+
 
     if(res.data){
       alert('데이터를 추가했습니다.');
@@ -71,24 +64,7 @@ class App extends Component {
     }
   } 
 
-  _delete = async (el) => {
-    const remove = window.confirm(el.test_col + '을 삭제 합니까?');
 
-    if(remove){
-      const body = { num : el.num }
-      const res  = await axios('/delete/data',{
-        method : 'POST',
-        data : { 'delete' : body },
-        headers: new Headers()
-      })
-
-      if(res.data) {
-        alert('데이터를 삭제했습니다.')
-        return window.location.reload();
-      }
-    }
-  
-  }
 
   _nmaeUpdate(e){
     this.setState({name : e.target.value})
@@ -96,51 +72,42 @@ class App extends Component {
 
 
   render() {
-    
-    const { list } = this.state;
-    
+
     return(
       <div className='App'>
-        <h3> Welcome to <u>kpg</u> Blog !</h3>
-        <h5> https://test.blog.me </h5>
+        <div className="RouterTest">
+          
+       
+          <Route path="/" component={Home} exact />
+          <Route path="/test" component={Test}   />
+          <Route path="/test/:data" component={Test}   />
+          
+            <div><Link to='/'>Home</Link></div>
+            <div><Link to='/test'>Test</Link></div>
+            <div><Link to='/list'>게시판</Link></div>
+          
+        
+        
+        </div>
 
         <br />
-        <form method="POST" onSubmit={this._addData}>
-          <input type="text" maxLength='10' onChange={(e) => this._nmaeUpdate(e)} />
-          <input type="submit" value='Add' />
-        </form>
+
 
         <br /> <br />
-
-          <div style={{overflow : 'auto' }}>
-            <h4 style={{color : '#ababab'}}>Test List</h4>
-
-              <div style={{ border : 'solid 1px black', width : '50%' , marginLeft : '25%' , textAlign : 'left' }}>
-                <div style={{display : 'grid', gridTemplateColumns : '32% 35% 30%', textAlign : 'center'}}>
-                  <div> Number </div>
-                  <div> Name </div>
-                  <div> Other </div>
-                </div>
-              </div>
-
-              { list.length !== 0
-                ? list.map((el,key) => { 
-                  return(
-                    <div key={key} style={{ display : 'grid', lineHeight: '40px', gridTemplateColumns : '32% 35% 20% 0%', width : '50%', marginLeft : '25%' }}>
-                      <div> {el.num}</div>
-                      <div> {el.test_col}</div>
-                      <div
-                      style={{color : '#ababab'}}
-                      onClick={() => this._modify(el)}> modify </div>
-                      <div
-                      style={{ color : '#ababab' }} 
-                      onClick={() => this._delete(el)}> Delete </div>
-                    </div>
-                  )
-                }) 
-              
-                : null}
-
+          <div className="board_area">
+            <Route path="/list" component={List} />
+            <Switch>
+              <Route path="/insert_form/:num" component={Write} />
+              <Route path="/insert_form" component={Write} />
+            </Switch>
+            <Switch>
+              <Route path="/detail/:num" component={Detail} />
+              <Route path="/detail" component={Detail} />
+            </Switch>
+            <Switch>
+              <Route path="/update/:num" component={Update} />
+              <Route path="/update" component={Update} />
+            </Switch>
           </div>
 
       </div>

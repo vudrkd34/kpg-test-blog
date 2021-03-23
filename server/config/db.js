@@ -5,7 +5,7 @@ const db = mysql.createPool({
     port: '3306',
     user: 'utsoft',
     password: 'utsoft!@#',
-    database: 'TEST'
+    database: 'REACT_BOARD'
 });
 
 module.exports = db;

@@ -11,7 +11,7 @@ const db = {};
 
 
 let sequelize = new Sequelize(
-  'TEST',
+  'REACT_BOARD',
   'utsoft',
   'utsoft!@#',
   {
@@ -28,7 +28,7 @@ let sequelize = new Sequelize(
     }
   }
 );
-
+    
   
     db.sequelize = sequelize;
     db.Sequelize = Sequelize;
@@ -45,6 +45,8 @@ let sequelize = new Sequelize(
     db.Teacher = require('./teacher')(sequelize,Sequelize);
     db.Class = require('./class')(sequelize, Sequelize);
     db.TEST = require('./test')(sequelize, Sequelize);
+    db.FILE = require('./file')(sequelize, Sequelize);
+    db.Board = require('./board')(sequelize,Sequelize);
 
     //db.Teacher.hasOne(db.Class);
 

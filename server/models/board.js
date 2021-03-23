@@ -1,7 +1,7 @@
 
 module.exports = (sequelize, DataTypes) => {
     return sequelize.define(
-      'test', // 테이블의 이름을 지정합니다.
+      'board', // 테이블의 이름을 지정합니다.
       {
        num : {
         allowNull: false,
@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
         charset: 'utf8',
         collate: 'utf8_general_ci',
         timestamps: false,
-        tableName:'test'
+        tableName:'board'
         
       }
   )};
