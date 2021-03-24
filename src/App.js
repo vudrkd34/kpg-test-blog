@@ -79,12 +79,12 @@ class App extends Component {
           
        
           <Route path="/" component={Home} exact />
-          <Route path="/test" component={Test}   />
           <Route path="/test/:data" component={Test}   />
           
-            <div><Link to='/'>Home</Link></div>
-            <div><Link to='/test'>Test</Link></div>
-            <div><Link to='/list'>게시판</Link></div>
+            <div>
+            <Link to='/'>Home</Link> {'\u00A0'} 
+            <Link to='/list'>게시판</Link>
+            </div>
           
         
         
