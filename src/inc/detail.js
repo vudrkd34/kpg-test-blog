@@ -39,7 +39,7 @@ class Detail extends Component{
       }
 
       _getInfo2 = async() => {
-        const res = await axios.post('/get/info',{
+        const res = await axios.post('/get/info',{ //test
             'num': this.props.match.params.num,
         });
     
