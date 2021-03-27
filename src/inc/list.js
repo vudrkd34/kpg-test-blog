@@ -14,6 +14,8 @@ import Button from '@material-ui/core/Button';
 
 import React, {Component } from 'react';
 
+import moment from 'moment';
+
 const useStyles = {
     table: {
       minWidth: 650,
@@ -74,6 +76,21 @@ class List extends Component{
         
       }
 
+      change_date(published_at){
+
+         var publish_date = "";
+        if(published_at !== null){
+
+            
+
+            publish_date = moment(published_at).subtract(9, 'hour').format('YYYY년MM월DD일');
+
+         }
+
+        return publish_date
+      }
+    
+
 
     render(){
 
@@ -103,7 +120,7 @@ class List extends Component{
                 <TableCell component="th" scope="row">{row.num}</TableCell>
                 <TableCell><Link to={`/detail/${row.num}`} onClick={this.go_detail}>{row.title}</Link></TableCell>
                 <TableCell>{row.author}</TableCell>
-                <TableCell></TableCell>
+                <TableCell>{this.change_date(row.insert_dt)}</TableCell>
             </TableRow>
             )): null} 
             </TableBody>
