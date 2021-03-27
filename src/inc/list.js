@@ -91,7 +91,7 @@ class List extends Component{
         <Table className={classes.table} aria-label="simple table">
             <TableHead>
             <TableRow>
-                <TableCell>Number</TableCell>
+                <TableCell>Numbers</TableCell>
                 <TableCell>TITLE</TableCell>
                 <TableCell>Author</TableCell>
                 <TableCell>Date</TableCell>
