@@ -22,7 +22,7 @@ const useStyles = {
     },
 };
 
-class List extends Component{
+class List extends Component{ //TEST
 
     constructor(props){
         super(props)
