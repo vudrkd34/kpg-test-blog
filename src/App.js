@@ -9,6 +9,10 @@ import List from './inc/list.js';
 import Write from './inc/write.js';
 import Detail from './inc/detail.js';
 import Update from './inc/update.js';
+import Login from './inc/login.js';
+import Join from './inc/join.js';
+import Button from '@material-ui/core/Button';
+import { join } from 'path';
 
 class App extends Component {
   constructor(props){
@@ -78,6 +82,10 @@ class App extends Component {
         <div className="RouterTest">
           
        
+          <div id="loginForm" style={{float: "right"}} >
+            <Link to='/login_form' style={{ textDecoration: 'none' }}>로그인</Link> {" "}
+            <Link to='/join_form' style={{ textDecoration: 'none' }}>회원가입</Link>
+          </div>
           <Route path="/" component={Home} exact />
           <Route path="/test/:data" component={Test}   />
           
@@ -94,6 +102,12 @@ class App extends Component {
 
 
         <br /> <br />
+          <div className="login_area">
+            <Route path="/login_form" component={Login} />
+            <Route path="/join_form" component={Join} />
+
+          </div>
+
           <div className="board_area">
             <Route path="/list" component={List} />
             <Switch>

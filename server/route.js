@@ -9,6 +9,7 @@ router.post('/delete/data',controller.api.deleteData);
 router.post('/get/info',controller.api.getInfo);
 router.post('/get/file',controller.api.getFile);
 router.post('/delete/file',controller.api.deleteFile);
+router.post('/login',controller.api.doLogin);
 
 
 

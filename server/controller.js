@@ -110,7 +110,11 @@ module.exports = {
                 return res.sendStatus(200)
             })
         },
+        doLogin : (req,res) => {
 
+            console.log(req.body.id)
+
+        },
         
     } 
 }
