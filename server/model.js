@@ -5,6 +5,7 @@ const {
     TEST,
     FILE,
     Board,
+    Member,
     Sequelize:{Op}
 
 } = require('./models');
@@ -129,6 +130,16 @@ module.exports = {
             .catch(err => {throw err})
 
         },
+        selectLoginInfo : (req,callback) => {
+
+            Member.findOne({
+                where : { mb_id : req.body.id}
+            })
+            .then(callback)
+            .catch(err => {throw err})
+
+        },
+        
 
     }
 }

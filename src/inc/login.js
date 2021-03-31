@@ -27,6 +27,13 @@ class Login extends Component{
         const {pw} = this.state;
 
         e.preventDefault();
+
+        // localStorage.setItem(
+        //     "userInfo",
+        //     JSON.stringify({
+        //       id: id,
+        //     })
+        // );
     
         const res = await axios('/login',{
           method : 'POST',
@@ -34,12 +41,9 @@ class Login extends Component{
           headers: new Headers() 
         }) 
         
+        console.log(res.data);
     
-    
-        if(res.data){
-          alert('데이터를 추가했습니다.');
-          return window.location.reload();
-        }
+
     }
 
 
@@ -60,7 +64,6 @@ class Login extends Component{
                 ID <input type="text" name="id" onChange={this.handleChange} /> <br />
                 PW <input type="password" name="pw" onChange={this.handleChange}/> 
             </form>
-
             <Button onClick={this.doLogin} variant="contained">로그인</Button>
             </>
 
