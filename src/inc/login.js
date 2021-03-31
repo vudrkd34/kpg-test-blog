@@ -28,20 +28,36 @@ class Login extends Component{
 
         e.preventDefault();
 
-        // localStorage.setItem(
-        //     "userInfo",
-        //     JSON.stringify({
-        //       id: id,
-        //     })
-        // );
+
     
         const res = await axios('/login',{
           method : 'POST',
           data : {'id' : id , 'pw' : pw } ,
           headers: new Headers() 
         }) 
-        
-        console.log(res.data);
+
+        const result_msg = res.data;
+        console.log((result_msg));
+        const result_split = result_msg.split("||");
+        console.log(JSON.parse(result_split[1]));
+
+
+        // if(result_split[0] === "SUCCESS"){
+        //     console.log(result_split[1]);
+        //     // localStorage.setItem(
+        //     //     "userInfo",
+        //     //     JSON.stringify({
+        //     //       id: id,
+        //     //       name: 
+        //     //     })
+        //     // );
+
+        // }else if(result_split[0] === "FAIL"){
+        //     alert(result_split[1]);
+        //     return;
+
+        // }
+
     
 
     }

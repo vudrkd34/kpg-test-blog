@@ -114,20 +114,23 @@ module.exports = {
 
 
             model.api.selectLoginInfo(req,data => {
-                
+                let result = "";
                 if(data != null){
                     if(data.mb_pw === req.body.pw){
-                        data = "SUCCESS||로그인 되었습니다."
+
+                        let userInfo ={mb_id :  data.mb_id, name : data.name , email : data.email}
+
+                        result = "SUCCESS||"+JSON.stringify(userInfo)
                     }else{
-                        data = "FAIL||비밀번호가 일치하지않습니다."
+                        result = "FAIL||비밀번호가 일치하지않습니다."
                     }
 
                 }else{
                     //해당 아이디가 없는경우
-                    data = "FAIL||아이디가 존재 하지 않습니다.";
+                    result = "FAIL||아이디가 존재 하지 않습니다."
                 }
 
-                return res.send(data)
+                return res.send(result)
             })
 
             console.log(req.body.id)
